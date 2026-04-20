@@ -3,7 +3,7 @@
 
 ## Problem Statement
 
-We need to build a real-time fraud detection system that evaluates payment transactions and returns a decision quickly enough to sit in the transaction path.
+A real-time fraud detection system that evaluates payment transactions and returns a decision quickly enough to sit in the transaction path.
 
 ## Requirements
 The system should:
