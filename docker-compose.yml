@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  go-risk-engine:
+    build:
+      context: ./go-risk-engine
+    container_name: go-risk-engine
+    ports:
+      - "8081:8081"
+    environment:
+      PORT: 8081
+      MODEL_WEIGHTS_PATH: /app/model/weights.json
+
+  springboot-api:
+    build:
+      context: ./springboot-api
+    container_name: springboot-api
+    depends_on:
+      - go-risk-engine
+    ports:
+      - "8080:8080"
+    environment:
+      RISK_ENGINE_BASE_URL: http://go-risk-engine:8081
